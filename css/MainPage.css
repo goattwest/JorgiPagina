@@ -1,0 +1,218 @@
+@font-face {
+  font-family: Kilo;
+  src: url(../fonts/kilo/Kilo.otf) format('truetype');
+}
+
+@font-face {
+    font-family: TNRCondensed;
+    src: url(../fonts/Times/TNR_Condensed.otf) format('truetype');
+}
+
+@font-face {
+    font-family: Digistick;
+    src: url(../fonts/Digistick/Digistick-Oblique.otf) format('truetype');
+}
+
+@font-face {
+    font-family: Sega;
+    src: url(../fonts/Sega/SEGA.TTF) format('truetype');
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  
+  background-image: url(../images/fonduki.png);
+  background-size: cover;
+}
+
+/*La linea roja con texto vertical*/
+/*Ya no hay que moverle a esto*/
+.vertical {
+  z-index: 1001;
+  
+  background-color: rgba(212, 130, 97, 1);
+  
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  
+  position: fixed;
+  left: 10vh;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  
+  width: 16vh;
+  padding: 10px;
+  align-items: center;
+  align-content: center;
+}
+  
+.verticalText {
+  /*Cosas del texto*/
+  font-family: Sega;
+  font-size: 5vw;
+  color: white;
+  height: 100%;
+  display: block;
+  align-content: center;
+  
+  margin-left: -1.5vh;
+  
+  --spacio: 3.75vw;
+  
+  white-space: nowrap;
+  /*Aca se le cambia lo rapido que va el texto*/
+  animation: marquee-vertical 6s infinite linear;
+  padding-top: var(--spacio);
+  
+  /*Esto pone lo del data-text despues del texto dentro de la etiqueta 
+    de vertical text y le pone un pequeño espacio para separar ambos textos*/
+  &:after{
+    content: attr(data-text);
+    padding-top: var(--spacio);
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0)
+  }
+  100% {
+    /*Moverle a esto si la animacion de desplazamiento se ve cortada*/
+    transform: translateY(-81%)
+  }
+}
+
+/*El texto que se mueve horizontalmente de abajo*/
+.m{
+  z-index: 1000;
+  
+  font-family: Digistick;
+  font-size: 8vw;
+  
+  color: black;
+  text-shadow: -8px -8px 0 #fff, 8px -8px 0 #fff, -8px 8px 0 #fff, 8px 8px 0 #fff;
+  
+  position: fixed;
+  top: 78vh;
+  
+  --space: 4vw;
+  
+  white-space: nowrap;
+  animation: marquee 6.5s infinite linear;
+  padding-left: var(--space);
+  
+  &:after{
+    content: attr(data-text);
+    padding-left: var(--space);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0)
+  }
+  100% {
+    transform: translateX(-54.25%)
+  }
+}
+
+.SpinningVinyl {
+  z-index: 1003;
+  
+  border-radius: 50vh;
+  background-color: white;
+  padding: 2vh;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  animation: spin 6s infinite linear;
+  
+  position: fixed;
+  top: 55vh;
+  left: 145vh;
+}
+
+.JorgiLogo {
+  z-index: 1003;
+  
+  position: absolute;
+  rotate: -15deg;
+  
+  width: auto;
+  height: auto;
+  
+  top: 42%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin { 
+    100% { 
+        transform:rotate(-360deg); 
+    } 
+}
+
+.contenido {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.6);
+  
+  top: -0.07vh;
+  left: 27.25vh;
+  width: 135vh;
+  height: 100%;
+  
+  align-items: center;
+  text-align: center;
+}
+
+.titulo {
+  font-family: TNRCondensed;
+  font-size: 15vh;
+  
+  padding: 5vh;
+  margin-left: -5vh;
+  margin-bottom: -2vh;
+}
+
+.CosasDeTexto {
+  position: fixed;
+  background-color: rgba(95, 129, 222, 0.3);
+  
+  padding: 3vh;
+  border-radius: 10vh;
+  
+  left: 31.5vh;
+  width: 121vh;
+  height: 100%;
+  
+  align-items: center;
+  text-align: center;
+}
+
+.cosa {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.8);
+  
+  font-family: TNRCondensed;
+  font-size: 2vh;
+
+  padding: 4vh;  
+  border-radius: 14vh;
+  
+  width: 85vh;
+  height: auto;
+  
+  margin-bottom: 3vh;
+  
+  /*align-items: flex-start;*/
+  /*Se sobreponen los objetos de la clase cosa al meterse varios dentro del html*/
+}
