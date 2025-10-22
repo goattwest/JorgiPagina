@@ -26,9 +26,15 @@ body{
   display: flex;
   align-items: flex-start;
   overflow: hidden;
-  
-  background-image: url(../images/fonduki.png);
-  background-size: cover;
+}
+
+.videoFondo {
+  z-index: 0;
+  position: fixed;
+
+  height: 150vh;
+  left: -50vh;
+  top: -3vh;
 }
 
 /*La linea roja con texto vertical*/
@@ -55,6 +61,9 @@ body{
   
 .verticalText {
   /*Cosas del texto*/
+  position: fixed;
+  left: 13.5vh;
+
   font-family: Sega;
   font-size: 5vw;
   color: white;
@@ -144,7 +153,7 @@ body{
 .JorgiLogo {
   z-index: 1003;
   
-  position: absolute;
+  position: fixed;
   rotate: -15deg;
   
   width: auto;
