@@ -11,9 +11,9 @@
     
 </head>
 <body>
-    <video autoplay muted class="videoFondo" src="../src/vids/BrcFondoMorado.webm"></video>
+    <video autoplay muted loop class="videoFondo" src="../src/vids/BrcFondoMorado.webm"></video>
 
-    <audio autoplay preload id="audioFondo" src="../src/audio/Musica fondo.mp3"></audio>
+    <audio autoplay preload loop id="audioFondo" src="../src/audio/bg_music.mp3"></audio>
     
     <div class="SpinningVinyl">
       <img src="../src/images/vinilo.png" alt="" width="700" height="700" />
@@ -52,7 +52,7 @@
     
     <script>
       const audio = document.getElementById("audioFondo");
-      audio.volume = 0.3
+      audio.volume = 0.075
     </script>
 </body>
 </html>
